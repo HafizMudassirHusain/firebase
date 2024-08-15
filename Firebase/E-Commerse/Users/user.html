@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="user.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="main">
+        <h1>hello users</h1>
+        <div id="menucard" class="row">
+        
+        </div>
+     </div>
+
+<script>
+    
+var convert = JSON.parse(localStorage.getItem('menucard'))
+var getMenuDiv = document.getElementById('menucard')
+// console.log(convert)
+convert.forEach((data) => {
+  console.log(data)
+  getMenuDiv.innerHTML += `<div class="card" style="width: 18rem;">
+  <img src="${data.img}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${data.id}</h5>
+    <h2 class="card-title">${data.name}</h2>
+    <p class="card-text">${data.description}</p>
+    <h5 class="card-title">${data.price}</h5>
+    <button class="btn btn-primary">EdiT btn</button>
+    <button class="btn btn-primary">Delete btn</button>
+  </div>
+</div>`;
+});
+
+</script>
+</body>
+</html>

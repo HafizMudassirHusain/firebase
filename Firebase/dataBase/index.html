@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="inp">
+    <button id="btn">send data in database</button>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+        import { getFirestore,  doc, setDoc  } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyAkP-QAWON55lqKUcV2I8pXb-oHpQWW1Pw",
+          authDomain: "second-pro-f9564.firebaseapp.com",
+          projectId: "second-pro-f9564",
+          storageBucket: "second-pro-f9564.appspot.com",
+          messagingSenderId: "544135828286",
+          appId: "1:544135828286:web:67b5c9099171e7d356126f"
+        };
+      
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        var getinp = document.getElementById('inp')
+        var btn = document.getElementById('btn')
+        var randamId = Math.floor(Math.random()*1000) 
+        btn.addEventListener('click', async() =>{
+            if(getinp.value){          
+                await setDoc(doc(db, "Employee", `user${randamId}`), {
+                     name: getinp.value,
+                     id: randamId
+                            });
+                            console.log('data gaya;')
+                        }else{
+                                console.log('no data')
+                            }
+                        });
+
+
+      </script>
+</body>
+</html>

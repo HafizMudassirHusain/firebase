@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-User Sign Up and Sign In</title>
+    <style>
+        /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    width: 300px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="signup" class="form-container">
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <label for="signupUsername">Username:</label>
+                <input type="text" id="signupUsername" required>
+                
+                <label for="signupPassword">Password:</label>
+                <input type="password" id="signupPassword" required>
+                
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <div id="signin" class="form-container">
+            <h2>Sign In</h2>
+            <form id="signinForm">
+                <label for="signinUsername">Username:</label>
+                <input type="text" id="signinUsername" required>
+                
+                <label for="signinPassword">Password:</label>
+                <input type="password" id="signinPassword" required>
+                
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+// scripts.js
+document.getElementById('signupForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const username = document.getElementById('signupUsername').value;
+    const password = document.getElementById('signupPassword').value;
+
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    const userExists = users.some(user => user.username === username);
+
+    if (userExists) {
+        alert('Username already exists. Please choose another one.');
+    } else {
+        users.push({ username, password });
+        localStorage.setItem('users', JSON.stringify(users));
+        alert('Sign up successful!');
+        document.getElementById('signupForm').reset();
+    }
+});
+
+document.getElementById('signinForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const username = document.getElementById('signinUsername').value;
+    const password = document.getElementById('signinPassword').value;
+
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    const validUser = users.find(user => user.username === username && user.password === password);
+
+    if (validUser) {
+        alert('Sign in successful!');
+        document.getElementById('signinForm').reset();
+    } else {
+        alert('Invalid username or password.');
+    }
+});
+
+    </script>
+</body>
+</html>
