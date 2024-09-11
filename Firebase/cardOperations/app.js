@@ -2,12 +2,13 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/fireba
 import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDN3qVhonsM16PTUhuj4GnLUtMmdLdOdh4",
-  authDomain: "firstpro-6970d.firebaseapp.com",
-  projectId: "firstpro-6970d",
-  storageBucket: "firstpro-6970d.appspot.com",
-  messagingSenderId: "543837521380",
-  appId: "1:543837521380:web:6fc8f9cbfd4c0c5ff5b3f1"
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID",
+  measurementId: "YOUR_MEASUREMENT_ID"
 };
 
 const app = initializeApp(firebaseConfig);
