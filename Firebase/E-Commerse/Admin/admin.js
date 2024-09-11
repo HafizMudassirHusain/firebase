@@ -11,12 +11,13 @@ import { getStorage ,
 } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-storage.js";
  
 const firebaseConfig = {
-  apiKey: "AIzaSyA4vh55jxmsSyFocm0iVirOKWKIi913giM",
-  authDomain: "e-commerce-bee09.firebaseapp.com",
-  projectId: "e-commerce-bee09",
-  storageBucket: "e-commerce-bee09.appspot.com",
-  messagingSenderId: "1089328260784",
-  appId: "1:1089328260784:web:c1025fe271b00ca8c63d75"
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID",
+  measurementId: "YOUR_MEASUREMENT_ID"
 };
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
